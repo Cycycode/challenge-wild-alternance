@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// == Impor
+// == Import 
 import './styles.scss';
+
+import Loader from 'src/components/Loader';
 
 // == Composant
 const App = () => {
@@ -29,8 +31,10 @@ const App = () => {
         console.log('we got an error', error);
       })
       .finally(() => {
-        console.log('finally');
-        setLoadingMembers(false);
+        console.log('finally'); 
+        setTimeout(() => {
+          setLoadingMembers(false);
+        }, 2500);
       });
   };
 
@@ -41,17 +45,17 @@ const App = () => {
   }, []);
 
   console.log(members.length);
-  
+
   return(
     <div className="app">
-
       <header>
         <h1>the crew</h1>
         <h2>visualize all the members of the crew<br />&<br />add braves sailors to it !
         </h2>
       </header>
-        {(loadingMembers)}
+        {(loadingMembers && <Loader />)}
         {!loadingMembers && (
+        <div className="members">
           <ul className="member-list">
             {members.map((member => (
               <li 
@@ -61,18 +65,19 @@ const App = () => {
               </li>
             )))}
           </ul>
-        )}
-      <form>
-        <p>add a new member</p>
-        <input
-          type="text"
-          placeholder="enter the name here"
-        />
-        <button>add<br />member</button>
-      </form>
-      <div>
-        we have now {members.length} sailors in the crew !
-      </div>
+          <form>
+            <p>add a new member</p>
+            <input
+              type="text"
+              placeholder="enter the name here"
+            />
+            <button>add<br />member</button>
+          </form>
+          <div className="members-length">
+            We now have {members.length} sailors in the crew !
+          </div>
+        </div>
+      )} 
     </div>
   );
 };
