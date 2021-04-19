@@ -13,6 +13,13 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+
+// --------- MEMBERS ---------
+
+$router->get(
+    'members', // my endpoint list
+    [
+        'as' => 'member-list',
+        'uses' => 'MemberController@list'
+    ]
+);
