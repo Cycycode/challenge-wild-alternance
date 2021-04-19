@@ -10,6 +10,8 @@ import Loader from 'src/components/Loader';
 // == Composant
 const App = () => {
 
+//! useState
+
   // Store the members in a state variable.
   // We are passing an empty array as the default value.
   const [members, setMembers] = useState([]);
@@ -17,6 +19,12 @@ const App = () => {
   // Here it tells if we are charging the members
   const [loadingMembers, setLoadingMembers] = useState(true);
 
+   // Here we update the state of the input everytime we type something
+   // The value of the input is changing throught the state 
+  const [newMemberName, setnewMemberName] = useState('');
+  console.log(newMemberName);
+
+//! methods
 
   const loadMembers = () => {
   // We use axios to get the list
@@ -32,20 +40,27 @@ const App = () => {
       })
       .finally(() => {
         console.log('finally'); 
+        // i added a setTimeout for the style
         setTimeout(() => {
           setLoadingMembers(false);
         }, 2500);
       });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('handleSubmit');
+  };
+
+  //! useEffect 
 
   useEffect(() => {
     console.log('useEffect');
     loadMembers();
   }, []);
 
-  console.log(members.length);
-
+  //! render
+  
   return(
     <div className="app">
       <header>
@@ -65,13 +80,17 @@ const App = () => {
               </li>
             )))}
           </ul>
-          <form>
+          <form onSubmit={handleSubmit}>
             <p>add a new member</p>
             <input
               type="text"
               placeholder="enter the name here"
+              value={newMemberName}
+              onChange={(event) => 
+              setnewMemberName(event.target.value)
+              }
             />
-            <button>add<br />member</button>
+            <button type="submit">+</button>
           </form>
           <div className="members-length">
             We now have {members.length} sailors in the crew !
