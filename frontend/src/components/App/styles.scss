@@ -49,11 +49,10 @@
 
     li {
       width:30%;
-      font-family: 'Oswald', sans-serif;
-      font-weight: bold;
+      font-family: 'Beth Ellen', sans-serif;
       color: white;
-      font-size: 1.4rem;
-      line-height: 1.4rem;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
     }
   }
   
@@ -76,10 +75,10 @@
     }
 
     input {
-      width:60%;
+      width:40%;
       padding:1rem;
       margin: 0 0 2rem 0;
-      font-family: 'Oswald', sans-serif;
+      font-family: 'Beth Ellen', sans-serif;
       font-size: 1.2rem;
       background-color:white;
       border:none;
@@ -87,18 +86,20 @@
     }
 
     button {
-      width:60%;
-      padding:1rem;
+      width:90px;
+      height:90px;
       font-family: 'Pirata One', sans-serif;
       font-size: 1.2rem;
       color: white;
       text-shadow: 5px 5px 8px black;
-      background: rgba( 255, 255, 255, 0.10 );
-      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-      backdrop-filter: blur( 7.0px );
-      -webkit-backdrop-filter: blur( 7.0px );
-      border-radius: 10px;
+      background-color: #324A5E;
+      border-radius: 50% 50%;
       border: 1px solid rgba( 255, 255, 255, 0.18 );
+      transition: 1s;
+
+      &:hover {
+        transform: scale(1.2)
+      }
     }
   }
 }
