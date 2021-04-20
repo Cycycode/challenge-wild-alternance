@@ -6,6 +6,7 @@
   width: 100%;
   height: 100%;
   text-align: center;
+  padding: 0 0 3rem 0;
 
 /*-------- HEADER --------*/
 
@@ -14,16 +15,17 @@
     padding:4rem 0 3rem 0;
 
     h1 {
-      font-family: 'Pirata One', sans-serif;
+      font-family:  vars.$text-title;
       font-size: 5rem;
-      color: white;
-      text-shadow: 5px 5px 8px #324A5E;
+      text-transform: uppercase;
+      color: vars.$secondColor;
+      text-shadow: 5px 5px 8px vars.$mainColor;
     }
 
     h2 {
       padding: 3rem 4rem 0 4rem;
-      font-family: 'Oswald', sans-serif;
-      color:#324A5E;
+      font-family:  vars.$text-font;
+      color:vars.$mainColor;
       font-size: 2rem;
       line-height: 2rem;
       
@@ -31,14 +33,13 @@
   }
 
   .members {
-    width: 60%;
+    width: 100%;
     padding: 2rem 0 3rem 0;
     margin: 0 auto;
     background: rgba( 255, 255, 255, 0.10 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    box-shadow: 0 8px 32px 0 rgba(35, 40, 105, 0.37);
     backdrop-filter: blur( 7.0px );
     -webkit-backdrop-filter: blur( 7.0px );
-    border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
    
     
@@ -48,13 +49,13 @@
       /*flexbox*/
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-around;
       padding: 0 1rem 2rem 1rem;
 
       li {
-        width:30%;
-        font-family: 'Beth Ellen', sans-serif;
-        color: white;
+        min-width:30%;
+        font-family: vars.$text-cursive;
+        color: vars.$secondColor;
         font-size: 1.5rem;
         line-height: 1.8rem;
       }
@@ -71,33 +72,39 @@
       margin: 0 auto;
       padding: 3rem 1rem 3rem 1rem;
 
-      p {
+      label {
         padding: 0 0 0.5rem 0;
-        font-family: 'Oswald', sans-serif;
-        color:#324A5E;
+        font-family: vars.$text-font;
+        color:vars.$mainColor;
+        font-weight: bold;
         font-size: 1rem;
         line-height: 2rem;
+        cursor:default;
       }
 
       input {
-        width:40%;
+        width:40vh;
         padding:1rem;
         margin: 0 0 2rem 0;
-        font-family: 'Beth Ellen', sans-serif;
+        font-family: vars.$text-cursive;
         font-size: 1.2rem;
-        background-color:white;
+        color:vars.$mainColor;
+        background-color:vars.$secondColor;
         border:none;
         border-radius: 10px;
       }
 
       button {
-        width: 70px;
-        height: 70px;
-        color: white;
-        background-color: #324A5E;
+        width: 90px;
+        height: 90px;
+        color: vars.$secondColor;
+        background-color: vars.$mainColor;
+        background-image:url("../../assets/images/rope.png");
+        background-size: cover;
+        background-repeat: no-repeat;
         font-size: 3em;
         border-radius: 50%;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border:none;
         transition: 1s;
 
         &:hover {
@@ -109,10 +116,21 @@
     /*-------- MEMBER LENGTH --------*/
 
     .members-length {
-      font-family: 'Beth Ellen', sans-serif;
-      font-size: 2rem;
-      color: white;
-      text-shadow: 5px 5px 8px #324A5E;
+      font-family: vars.$text-font;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: vars.$secondColor;
+      text-shadow: 5px 5px 8px vars.$mainColor;
     }
+  }
+
+  /*-------- FOOTER --------*/
+
+  footer {
+    font-family: vars.$text-font;
+    color:vars.$mainColor;
+    font-weight: bold;
+    font-size: 1rem;
+    padding-top: 3rem;
   }
 }

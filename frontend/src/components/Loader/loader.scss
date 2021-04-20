@@ -1,11 +1,12 @@
 @use 'src/styles/vars';
 
 .loader-content {
+  height:100%;
 
   .loader {
     display: flex;
     justify-content:center;
-    padding-top: 2rem;
+    padding: 4rem 0 4rem 0;
   
     .loader-img {
       width:15rem;

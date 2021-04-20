@@ -14,12 +14,22 @@
 */
 
 
-// --------- MEMBERS ---------
+// --------- MEMBERS LIST ---------
 
 $router->get(
     'members', // my endpoint list
     [
         'as' => 'member-list',
         'uses' => 'MemberController@list'
+    ]
+);
+
+// --------- CREATION OF A NEW MEMBER ---------
+
+$router->post(
+    'members',
+    [
+        'as' => 'member-create',
+        'uses' => 'MemberController@create'
     ]
 );

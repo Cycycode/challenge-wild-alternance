@@ -22,15 +22,19 @@ const App = () => {
    // Here we update the state of the input everytime we type something
    // The value of the input is changing throught the state 
   const [newMemberName, setnewMemberName] = useState('');
-  console.log(newMemberName);
 
 //! methods
 
+  // this is the API url to fetch my data or add a member
+  const apiUrl = 'http://localhost:8000/members';
+
+  //& this method is called when i initialize the app with the useEffect
+  //& it's also called when i add a member to the list, to update it
   const loadMembers = () => {
   // We use axios to get the list
   // We save it in the state setMembers
   // Here it's an array returned by the API
-    axios.get('http://localhost:8000/members')
+    axios.get(apiUrl)
       .then((response) => {
         console.log('we got a success', response);
         setMembers(response.data); 
@@ -47,9 +51,27 @@ const App = () => {
       });
   };
 
-  const handleSubmit = (event) => {
+  //& this method is called when i submit the form
+  //& it's adding a member to the list and update it
+  //& it's only working if the input value is more than 3 caracters
+  const handleNewMember = (event) => {
+    // it's stopping the refresh of the app with the submitting
     event.preventDefault();
-    console.log('handleSubmit');
+    console.log('handleNewMember');
+    axios.post(apiUrl, {
+      'name': newMemberName,
+    })
+    .then((response) => {
+      console.log('we got a success', response);
+    })
+    .catch((error) => {
+      console.log('we got an error', error);
+    })
+    .finally(() => {
+      console.log('finally'); 
+      setnewMemberName('');
+      loadMembers();
+    });
   };
 
   //! useEffect 
@@ -64,8 +86,8 @@ const App = () => {
   return(
     <div className="app">
       <header>
-        <h1>the crew</h1>
-        <h2>visualize all the members of the crew<br />&<br />add braves sailors to it !
+        <h1>crew</h1>
+        <h2>visualize all the members of the crew<br />&<br />add braves sailors to it&nbsp;!
         </h2>
       </header>
         {(loadingMembers && <Loader />)}
@@ -80,11 +102,13 @@ const App = () => {
               </li>
             )))}
           </ul>
-          <form onSubmit={handleSubmit}>
-            <p>add a new member</p>
+          <form onSubmit={handleNewMember}>
+            <label htmlFor="name">add a new member</label>
             <input
               type="text"
+              name="name"
               placeholder="enter the name here"
+              minLength="2"
               value={newMemberName}
               onChange={(event) => 
               setnewMemberName(event.target.value)
@@ -93,10 +117,13 @@ const App = () => {
             <button type="submit">+</button>
           </form>
           <div className="members-length">
-            We now have {members.length} sailors in the crew !
+            We now have {members.length} sailors in the crew&nbsp;!
           </div>
         </div>
-      )} 
+      )}
+      <footer>
+        <div>made by cycycode - 2021</div>
+      </footer> 
     </div>
   );
 };

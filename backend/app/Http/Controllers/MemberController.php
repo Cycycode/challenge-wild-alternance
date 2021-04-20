@@ -20,4 +20,35 @@ class MemberController extends Controller
             200
         );
     }
+
+    /**
+     * /members
+     * POST
+     */
+    public function create(Request $request)
+    {
+        return $this->save($request);
+    }
+
+    /**
+     * /members
+     * POST
+     */
+    private function save(Request $request)
+    {
+
+        $memberName = $request->input('name');
+
+        $member = new Member();
+        $member->name = $memberName;
+
+        $member->updated_at = null;
+
+        $member->save();
+
+        return $this->sendJSONResponse(
+            $member,
+            201
+        );
+    }
 }
