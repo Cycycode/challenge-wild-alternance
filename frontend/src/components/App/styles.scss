@@ -6,7 +6,7 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  padding: 0 0 3rem 0;
+  padding: 0 0 1rem 0;
 
 /*-------- HEADER --------*/
 
@@ -19,7 +19,11 @@
       font-size: 5rem;
       text-transform: uppercase;
       color: vars.$secondColor;
-      text-shadow: 5px 5px 8px vars.$mainColor;
+      background-color: vars.$mainColor;
+      border-top:3px solid vars.$secondColor;
+      border-bottom:3px solid vars.$secondColor;
+      box-shadow: 0 8px 30px 30px rgb(255, 255, 255);
+      padding:0.5rem 0 0.5rem 0;
     }
 
     h2 {
@@ -55,7 +59,7 @@
       li {
         min-width:30%;
         font-family: vars.$text-cursive;
-        color: vars.$secondColor;
+        color: vars.$mainColor;
         font-size: 1.5rem;
         line-height: 1.8rem;
       }
