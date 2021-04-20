@@ -87,23 +87,14 @@ const App = () => {
     <div className="app">
       <header>
         <h1>crew</h1>
-        <h2>visualize all the members of the crew<br />&<br />add braves sailors to it&nbsp;!
+        <h2>Add braves sailors to the crew<br />&<br />Discover the team of argonauts&nbsp;!
         </h2>
       </header>
         {(loadingMembers && <Loader />)}
         {!loadingMembers && (
         <div className="members">
-          <ul className="member-list">
-            {members.map((member => (
-              <li 
-                key={member.id}
-              >
-                {member.name}
-              </li>
-            )))}
-          </ul>
           <form onSubmit={handleNewMember}>
-            <label htmlFor="name">add a new member</label>
+            <label htmlFor="name">add an argonaut</label>
             <input
               type="text"
               name="name"
@@ -119,6 +110,15 @@ const App = () => {
           <div className="members-length">
             We now have {members.length} sailors in the crew&nbsp;!
           </div>
+          <ul className="member-list">
+            {members.map((member => (
+              <li 
+                key={member.id}
+              >
+                {member.name}
+              </li>
+            )))}
+          </ul>
         </div>
       )}
       <footer>
