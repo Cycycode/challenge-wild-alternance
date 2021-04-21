@@ -1,0 +1,10 @@
+@use 'reset';
+@use 'vars';
+
+body {
+  width: 100%;
+  background-image: url("../assets/images/pexels-background.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
