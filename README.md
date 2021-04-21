@@ -36,6 +36,16 @@ To learn more about React's hooks, check out the following resources:
   <li><a href="https://reactjs.org/docs/hooks-intro.html">Introducing Hooks</a> </li>
 </ul>
 
+To learn more about Axios, check out the following resources:
+<ul>
+  <li><a href="https://github.com/axios/axios">Axios: Documentation</a> </li>
+</ul>
+
+To learn more about Sass, check out the following resources:
+<ul>
+  <li><a href="https://sass-lang.com/documentation">Sass: Documentation</a> </li>
+</ul>
+
 To learn more about Lumen micro-framework, check out the following resources:
 
 <ul>
